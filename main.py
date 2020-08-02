@@ -1,12 +1,16 @@
-import requests
-from bs4 import BeautifulSoup
-
-indeed_results = requests.get("https://www.indeed.com/jobs?q=python&limit=50")
-
-indeed_soup = BeautifulSoup(indeed_results.text,'html.parser')
+# import requests
+# from bs4 import BeautifulSoup
+from indeed import extract_indeed_pages, extract_indeed_jobs
 
 
-print(indeed_soup.title.string)
+
+indeed_max_page = extract_indeed_pages()
+extract_indeed_jobs(indeed_max_page)
+
+
+# for n in range(max_page):
+    # print(f"start={n*50}")
+
 
 
 
