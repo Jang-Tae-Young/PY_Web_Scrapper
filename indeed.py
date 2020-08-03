@@ -18,8 +18,6 @@ def extract_indeed_pages():
     max_page = pages[-1]
 
     return max_page
-    # for n in range(max_page):
-        # print(f"start={n*50}")
 
 def extract_indeed_jobs(last_pages):
     jobs = []
@@ -30,11 +28,11 @@ def extract_indeed_jobs(last_pages):
     job_results = soup.find_all("div",{"class":"jobsearch-SerpJobCard"})
     for a_result in job_results:
         title = a_result.find("h2",{"class":"title"}).find('a')['title']
+        # title = a_result.find("h2",{"class":"title"}).find('a').get('title')
         print(title)
         print("===================================")
 
         # print(jobtitle.title)
-
         # print(a_result.find("h2",{"class":"title"}).string )
 
     return jobs
