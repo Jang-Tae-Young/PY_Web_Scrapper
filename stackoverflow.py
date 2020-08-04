@@ -17,17 +17,20 @@ def get_number_of_pages():
 
 def extract_job(html):
 
+    # fc-black-700 fs-body1 mb4
     title = html.find("a",{"class":"s-link"})["title"]
-    company, location = html.find("h3",{"class":"fc-black-700"}).find_all("span", recursive=False)
+    company, location = html.find("h3",{"class":"fc-black-700 fs-body1 mb4"}).find_all('span',recursive = False)
     print(company)
     print(location)
     if company:
         company = company.string.strip("\r").strip("\n")
+        # company = company.string
     else:
         company = None
 
     if location:
         location = location.string.strip()
+        # location = location.string
     else:
         location = None
 
