@@ -1,13 +1,13 @@
-from indeed import extract_indeed_pages, extract_indeed_jobs
+from indeed import get_jobs
+import stackoverflow
 
-indeed_max_page = extract_indeed_pages()
-jobs = extract_indeed_jobs(indeed_max_page)
-
+# jobs = get_jobs()
 # print(jobs)
 
-# for n in range(max_page):
-    # print(f"start={n*50}")
+jobs = stackoverflow.get_jobs()
 
+
+print(jobs)
 
 
 
