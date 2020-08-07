@@ -20,11 +20,19 @@ def extract_job(html):
     # fc-black-700 fs-body1 mb4
     title = html.find("a",{"class":"s-link"})["title"]
     company, location = html.find("h3",{"class":"fc-black-700 fs-body1 mb4"}).find_all('span',recursive = False)
-    print(company)
-    print(location)
+    # print(company)
+    # print(location)
     if company:
+        
+        print("=========================================================")
+        print(company)
+        print("=========================================================")
+
+        company = company.string
+        str = f"<<<<<<<<<<<<<<<<<<<< company : {company} >>>>>>>>>>>>>>>>>>>>>>>"
+        print(str)
+        
         company = company.string.strip("\r").strip("\n")
-        # company = company.string
     else:
         company = None
 
