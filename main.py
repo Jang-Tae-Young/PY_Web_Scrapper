@@ -11,7 +11,3 @@ jobs = indeed_jobs + so_jobs
 save.save_to_csv(jobs)
 
 
-# print(jobs)
-
-
-
