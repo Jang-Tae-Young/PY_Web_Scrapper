@@ -16,29 +16,20 @@ def get_number_of_pages():
 
 
 def extract_job(html):
-
-    # fc-black-700 fs-body1 mb4
     title = html.find("a",{"class":"s-link"})["title"]
-    company, location = html.find("h3",{"class":"fc-black-700 fs-body1 mb4"}).find_all('span',recursive = False)
-    # print(company)
-    # print(location)
-    if company:
-        
-        print("=========================================================")
-        print(company)
-        print("=========================================================")
+    company, location = html.find("h3",{
+        "class":"fc-black-700 fs-body1 mb4"
+        }).find_all(
+            "span",recursive = False)
 
-        company = company.string
-        str = f"<<<<<<<<<<<<<<<<<<<< company : {company} >>>>>>>>>>>>>>>>>>>>>>>"
-        print(str)
-        
-        company = company.string.strip("\r").strip("\n")
+    if company:
+        company = company.get_text(strip = True)
     else:
         company = None
 
     if location:
-        location = location.string.strip()
-        # location = location.string
+        location = location.get_text(strip = True)
+        # location = location.string.strip()
     else:
         location = None
 
@@ -53,7 +44,7 @@ def extract_job(html):
 
 def extract_jobs(last_pages):
     jobs = []
-    last_pages = 5
+    # last_pages = 5
     for page in range(last_pages):
         print(f"Scrapping page {page}/{last_pages}")
         result = requests.get(f"{URL}&pg={page+1}")

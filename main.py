@@ -1,13 +1,17 @@
-from indeed import get_jobs
+# from indeed import get_jobs
+import indeed
 import stackoverflow
+import save
 
-# jobs = get_jobs()
+indeed_jobs = indeed.get_jobs()
+so_jobs = stackoverflow.get_jobs()
+
+jobs = indeed_jobs + so_jobs
+
+save.save_to_csv(jobs)
+
+
 # print(jobs)
-
-jobs = stackoverflow.get_jobs()
-
-
-print(jobs)
 
 
 
