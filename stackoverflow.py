@@ -29,7 +29,6 @@ def extract_job(html):
 
     if location:
         location = location.get_text(strip = True)
-        # location = location.string.strip()
     else:
         location = None
 
